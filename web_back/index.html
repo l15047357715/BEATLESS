@@ -109,12 +109,12 @@
                         if (res.code == 200) {
                             $('#myModal').modal();
                             $('.modal-body').text(res.msg);
+                            $('.confirm').on('click', function () {
+                                location.href = './login.html'
+                            });
                         }
                     }
                 });
-            });
-            $('.confirm').on('click', function () {
-                location.href = './login.html'
             });
         });
     </script>
@@ -192,7 +192,7 @@
                     ...
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary confirm">确定</button>
+                    <button type="button" class="btn btn-primary confirm" data-dismiss="modal">确定</button>
                     <button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
                 </div>
             </div>
