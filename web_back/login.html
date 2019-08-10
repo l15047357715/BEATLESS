@@ -19,7 +19,7 @@
 				let user_name = $('.input_txt').val();
 				let password = $('.input_pass').val();
 				if (user_name == '' || password == '') {
-					$('#myModal').modal();
+					$('#modalCancel').modal();
 					$('.modal-body').text('请填完整');
 					return;
 				}
@@ -31,14 +31,14 @@
 					},
 					success: function (res) {
 						if (res.code == 200) {
-							$('#myModal').modal();
+							$('#modalConfirm').modal();
 							$('.modal-body').text(res.msg);
 							$('.confirm').on('click', function () {
 								location.href = './index.html';
 							});
 
 						} else if (res.code == 400) {
-							$('#myModal').modal();
+							$('#modalCancel').modal();
 							$('.modal-body').text(res.msg);
 							$('.input_txt').val('');
 							$('.input_pass').val('');
@@ -72,19 +72,36 @@
 	</div>
 
 	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">登录提示</h4>
+					<h4 class="modal-title">登录提示</h4>
 				</div>
 				<div class="modal-body">
 					...
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary confirm" data-dismiss="modal">确定</button>
+					<button type="button" class="btn btn-primary confirm">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="modalCancel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">登录提示</h4>
+				</div>
+				<div class="modal-body">
+					...
+				</div>
+				<div class="modal-footer">
 					<button type="button" class="btn btn-default cancel" data-dismiss="modal">取消</button>
 				</div>
 			</div>
