@@ -109,12 +109,12 @@
                         if (res.code == 200) {
                             $('#myModal').modal();
                             $('.modal-body').text(res.msg);
-                            $('.confirm').on('click', function () {
-                                location.href = './login.html'
-                            });
                         }
                     }
                 });
+            });
+            $('.confirm').on('click', function () {
+                location.href = './login.html'
             });
         });
     </script>
